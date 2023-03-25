@@ -8,7 +8,7 @@ This extension hides the comment block on top of the file when it's opened. This
 
 The following configuration options are available:
 
-* `languages`: Languages that the extension will work. Supported languages: `C,C++,C#,Go,Java,JavaScript,Kotlin,Python,Rust,Scala,TypeScript`
+* `languages`: Languages that the extension will work. Supported languages: `C,C++,C#,CSS,Go,Java,JavaScript,Kotlin,Python,Rust,Scala,TypeScript`
 * `delay`: The delay, in milliseconds, before the comments are folded when file is opened. It can be between 0 and 1000 milliseconds.
 
 To change the configuration options, open the Settings editor (Ctrl+Comma or F1) and search for "Hide Top Comment".
