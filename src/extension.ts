@@ -17,7 +17,8 @@ const LANGUAGES: { [key: string]: string } = {
 	'cs': 'C#',
 	'kt': 'Kotlin',
 	'rs': 'Rust',
-	'scala': 'Scala'
+	'scala': 'Scala',
+	'css': 'CSS'
 };
 
 const LANGUAGES_STR = [...new Set(Object.values(LANGUAGES))].join(',');
@@ -111,7 +112,8 @@ function getTopCommentsRange(doc: vscode.TextDocument): vscode.Range | null {
 	if (language === 'Python') {
 		return getTopCommentRangeForPythonStyle(doc);
 	}
-	else if (['C', 'C++', 'C#', 'Go', 'Java', 'JavaScript', 'Kotlin',
+	// CSS doesn't support single line comment (//). However no need to handle that case.
+	else if (['C', 'C++', 'C#', 'CSS', 'Go', 'Java', 'JavaScript', 'Kotlin',
 		'Rust', 'Scala', 'TypeScript'].includes(language)) {
 		return getTopCommentRangeForCStyle(doc);
 	}
