@@ -3,7 +3,7 @@
   "displayName": "Hide Top Comment",
   "description": "Hides comment on top of file",
   "publisher": "bluestar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/bluestar55/vscode-hide-top-comment.git"
@@ -20,10 +20,6 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "hide-top-comment.helloWorld",
-        "title": "Hello World"
-      }
     ],
     "configuration": {
       "properties": {

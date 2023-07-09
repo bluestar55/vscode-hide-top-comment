@@ -18,6 +18,9 @@ None
 
 
 ## Release Notes
+### 0.0.4
+Update npm packages.
+
 ### 0.0.3
 Added JSX and TSX.
 
