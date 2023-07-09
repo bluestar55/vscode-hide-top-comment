@@ -1,4 +1,8 @@
 # Change Log
+
+## [0.0.3]
+Added JSX and TSX.
+
 ## [0.0.2]
 
 - Added CSS
