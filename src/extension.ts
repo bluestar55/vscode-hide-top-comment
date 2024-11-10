@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 
 const LANGUAGES: { [key: string]: string } = {
@@ -16,6 +17,7 @@ const LANGUAGES: { [key: string]: string } = {
 	'go': 'Go',
 	'cs': 'C#',
 	'kt': 'Kotlin',
+	'rb': 'Ruby',
 	'rs': 'Rust',
 	'scala': 'Scala',
 	'css': 'CSS',
@@ -111,7 +113,7 @@ function getTopCommentRangeForCStyle(doc: vscode.TextDocument): vscode.Range | n
 
 function getTopCommentsRange(doc: vscode.TextDocument): vscode.Range | null {
 	let language = getLanguageFromFileExt(getFileExt(doc.fileName));
-	if (language === 'Python') {
+	if (['Python', 'Ruby'].includes(language)) {
 		return getTopCommentRangeForPythonStyle(doc);
 	}
 	// CSS doesn't support single line comment (//). However no need to handle that case.
@@ -163,6 +165,21 @@ export function activate(context: vscode.ExtensionContext) {
 			delete visitedFiles[doc.fileName];
 		};
 	});
+
+	// The onDidCloseTextDocument event doesn't always fire when a file is closed,
+	// so we also listen for tab closure events and clear the visitedFiles accordingly.
+	vscode.window.tabGroups.onDidChangeTabs((changedEvent) => {
+		if (changedEvent?.closed) {
+			for (const tab of changedEvent.closed) {
+				const filename = tab.label;
+				for (let filepath in visitedFiles) {
+					if (filename === path.basename(filepath)) {
+						delete visitedFiles[filepath];
+					}
+				}	
+			}
+		}
+    });
 }
 
 export function deactivate() { }

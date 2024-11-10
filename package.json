@@ -3,7 +3,7 @@
   "displayName": "Hide Top Comment",
   "description": "Hides comment on top of file",
   "publisher": "bluestar",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/bluestar55/vscode-hide-top-comment.git"
@@ -30,7 +30,7 @@
         },
         "hide-top-comment.languages" : {
           "type": "string",
-          "default": "C,C++,C#,CSS,Go,Java,JavaScript,JSX,Kotlin,Python,Rust,Scala,TypeScript,TSX",
+          "default": "C,C++,C#,CSS,Go,Java,JavaScript,JSX,Kotlin,Python,Ruby,Rust,Scala,TypeScript,TSX",
           "description": "Languages"
         }
       }

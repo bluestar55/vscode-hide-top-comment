@@ -1,5 +1,8 @@
 # Change Log
 
+### 0.0.5
+Added support for Ruby inline comments.
+
 ### 0.0.4
 Update npm packages.
 
